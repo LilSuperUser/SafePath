@@ -1,4 +1,4 @@
-# safepath/views.py  (replace safe_route function with this)
+# model/views.py  (replace safe_route function with this)
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .utils.osrm_client import get_osrm_edges
