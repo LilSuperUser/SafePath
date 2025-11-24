@@ -1,41 +1,28 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-*{
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+* {
     margin: 0;
     padding: 0;
-    font-family: 'Poppins', sans-serif;
-
+    font-family: "Poppins", sans-serif;
     box-sizing: border-box;
 }
 
 body{
     background-color: #121212;
-
+    color: #e6e6e6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 #map {
-    width: 1450px;
+    width: 100%;
     height: 700px;
-    border-radius: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
+    z-index: 1;
 }
 
-.info-panel {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      z-index: 1000;
-      background: rgba(255,255,255,0.95);
-      padding: 10px;
-      border-radius: 6px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-      font-family: sans-serif;
-      width: 250px;
-    }
-    .control-row { margin-bottom: 8px; }
-    .btn { padding: 6px 10px; cursor: pointer; border-radius: 4px; border: 1px solid #888; background: #f5f5f5; }
-
-
-
-.main-cont{
+/* Container layout */
+.main-cont {
     display: flex;
     padding: 1rem;
     gap: 2rem;
@@ -44,181 +31,249 @@ body{
 .left-cont{
     display: flex;
     flex-direction: column;
-    /* background-color: red; */
     gap: 0.7rem;
+    width: 360px;
 }
-.left-cont .directions{
-    /* padding: 1rem; */
+
+.left-cont .directions {
     color: white;
     background-color: #121212;
     border: 2px #323232 solid;
     border-radius: 10px;
+    padding-bottom: 0.5rem;
 }
-.left-cont .directions .subcont{
-    /* background-color: blue; */
+
+.left-cont .directions .subcont {
     margin-bottom: 0.1rem;
-    padding: 1rem;
-    color: #A4A1A1;
-
-
+    padding: 0.8rem;
+    color: #a4a1a1;
 }
 .left-cont .directions .subcont h3{
     font-weight: 500;
+    font-size: 0.95rem;
+    margin-bottom: 0.25rem;
 }
 
-.left-cont .directions .subcont input{
-    color: #A4A1A1;
-    background-color: #121212;
+.left-cont .directions .subcont input {
+    color: #a4a1a1;
+    background-color: #0f0f0f;
     border: none;
-    border-bottom: #3b3b3b 2px solid;
+    border-bottom: #2b2b2b 2px solid;
     padding-block: 0.5rem;
-    /* border-radius: 10px; */
-}
-.left-cont .directions .subcont input:focus{
-        border: none;
-    border-bottom: #3b3b3b 2px solid;
-        outline: none;
-        box-shadow: none;
-
+    width: 100%;
 }
 
 .left-cont .directions button{
-    margin: 0.5rem;
+    margin: 0.6rem;
     border: none;
-    width: 95%;
-    padding-block:1rem ;
-    /* padding-inline: 7rem; */
-    border-radius: 10px;
+    width: calc(100% - 1.2rem);
+    padding-block: 0.9rem;
+    border-radius: 8px;
     text-align: center;
-    
-    
+    cursor: pointer;
+    transition: background-color 0.15s;
+    background-color: #74a858;
+    color: #fff;
+    font-weight: 600;
 }
-.left-cont .available-paths{
-    background-color: #121212;
+
+.left-cont .directions button:hover {
+    background-color: #5f8b44;
+}
+
+.left-cont .available-paths {
+    background-color: #0f0f0f;
     color: white;
-    border: 2px #323232 solid;
+    border: 1px solid #1f1f1f;
     border-radius: 10px;
-    padding: 0.3rem;
-
+    padding: 0.6rem;
+    min-height: 180px;
 }
 
-.left-cont .available-paths h3{
+.left-cont .available-paths h3 {
     font-weight: 500;
     font-size: 24px;
-    /* text-align: center; */
     padding-top: 1rem;
-    /* background-color: blue; */
     padding-left: 0.5rem;
-    
 }
-.left-cont .available-paths h3 img{
-    /* background-color: blue; */
-    margin-left: 5.5rem;
-    
-    
-}
-.left-cont .available-paths ul{
-    margin-top: 1rem;
-    text-decoration: none;
-    /* background-color: blue; */
+
+.left-cont .available-paths ul {
+    margin-top: 0.8rem;
     list-style: none;
-    
 }
-.left-cont .available-paths ul li{
-    margin-top: 0.2rem;
+
+.left-cont .available-paths ul li {
+    margin-top: 0.6rem;
 }
+
 .left-cont .available-paths ul li button {
     display: flex;
-    background-color: #2A2A2A;
+    background-color: #2a2a2a;
     border: none;
     color: white;
     text-align: left;
     align-items: center;
-    padding: 0.5rem;
+    padding: 0.8rem;
     width: 100%;
-    gap: 2rem;
-    transition: 0.3s ease-in-out;
+    gap: 1rem;
+    transition: 0.15s ease-in-out;
+    cursor: pointer;
+    border-radius: 8px;
 }
-.left-cont .available-paths ul li button:hover 
-{
+
+.left-cont .available-paths ul li button:hover {
     background-color: #404040;
 }
-.left-cont .available-paths ul li button h5{
-    font-size: 0.7rem;
-    font-weight: 400;
-    /* padding: 1rem; */
+
+.left-cont .available-paths ul li button h5 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
 }
-.left-cont .available-paths ul li button .innerdiv{
-    color: #888;
-    margin-left: 2rem;
-    font-size: 0.8rem;
-    /* background-color: blue; */
+
+.left-cont .available-paths ul li button .innerdiv {
+    color: #g0g0g0;
+    font-size: 0.85rem;
     margin-top: 0.3rem;
-    /* padding: 0.4rem; */
+    display: flex;
+    align-items: center;
 }
 
-.innerdiv progress{
-    border-radius: 0px;
+.innerdiv progress {
+    border-radius: 4px;
     border: transparent;
-    height: 8px;
-    background-color: #ddd;
-}
-.innerdiv progress::-webkit-progress-bar{
-    background-color: #74A858;
-}
-.innerdiv progress::-moz-progress-bar{
-    background-color: #74A858;
+    height: 10px;
+    width: 120px;
 }
 
+.innerdiv progress::-webkit-progress-bar {
+    background-color: #333;
+    border-radius: 4px;
+}
 
+.innerdiv progress::-webkit-progress-value {
+    background-color: #74a858;
+    border-radius: 4px;
+}
+
+.innerdiv progress::-moz-progress-bar {
+    background-color: #74a858;
+    border-radius: 4px;
+}
 
 /* ==========right content starts here ========================= */
-
-.right-cont{
+.right-cont {
     display: flex;
     flex-direction: column;
-    /* background-color: blue; */
-    gap: 0.5rem;
+    gap: 0.9rem;
+    flex: 1;
 }
-.bottom-cont{
+
+/* map wrapper to allow info panel overlay */
+#map-wrap {
+    position: relative;
+}
+
+/* info panel (over map) */
+.info-panel {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    font-family: sans-serif;
+    width: 280px;
+    color: #111;
+}
+.control-row {
+    margin-bottom: 8px;
+}
+.btn {
+    padding: 6px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    border: 1px solid #888;
+    background: #f5f5f5;
+}
+
+.bottom-cont {
     border-radius: 10px;
     color: white;
-    padding: 0.5rem;
-    background-color: #121212;
-    border: 2px #323232 solid;
-    
+    padding: 1rem;
+    background-color: #0f0f0f;
+    border: 1px solid #1f1f1f;
 }
-.bottom-cont h3{
-    font-weight: 500;
-    
+
+.bottom-cont h3 {
+    font-weight: 600;
+    margin-bottom: 1rem;
 }
-.bottom-cont .innerbottom{
+
+.bottom-cont .innerbottom {
     display: flex;
     justify-content: space-around;
-    /* background-color: blue; */
-    padding-top: 1rem;
+    padding-top: 0.5rem;
     color: #a7a7a7;
+}
 
+.innerbottom .crime-based h4 {
+    font-weight: 400;
+    margin-bottom: 0.5rem;
 }
-.innerbottom .crime-based h4{
-    font-weight: 300;
-}
-.innerbottom .crime-based progress{
-    border-radius: 0px;
+
+.innerbottom .crime-based progress {
+    border-radius: 4px;
     border: transparent;
-    height: 8px;
-    background-color: #ddd;
+    height: 10px;
+    width: 150px;
 }
-.innerbottom .crime-based progress::-webkit-progress-bar{
-    background-color: #74A858;
+
+.innerbottom .crime-based progress::-webkit-progress-bar {
+    background-color: #333;
+    border-radius: 4px;
 }
-.innerbottom .crime-based progress::-moz-progress-bar{
-    background-color: #74A858;
+
+.innerbottom .crime-based progress::-webkit-progress-value {
+    background-color: #74a858;
+    border-radius: 4px;
 }
-.innerbottom .time-based h3{
-    font-weight: 300;
+
+.innerbottom .crime-based progress::-moz-progress-bar {
+    background-color: #74a858;
+    border-radius: 4px;
+}
+
+.innerbottom .time-based h3 {
+    font-weight: 400;
     font-size: 1rem;
+    margin-bottom: 0.5rem;
 }
-.innerbottom .time-based ul li{
+
+.innerbottom .time-based ul li {
     list-style: none;
+    padding: 0.2rem 0;
+}
+
+/* small screens */
+@media (max-width: 980px) {
+    .main-cont {
+        flex-direction: column;
+        padding: 0.8rem;
+    }
+
+    .left-cont {
+        width: 100%;
+        order: 2;
+    }
+
+    .right-cont {
+        order: 1;
+    }
+
+    #map {
+        height: 520px;
+    }
 }

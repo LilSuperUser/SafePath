@@ -3,114 +3,69 @@
 
 {% block content %}
 <div class="main-cont">
+    <!-- LEFT PANEL -->
     <div class="left-cont">
         <div class="directions">
-                <div>
-                    <div class="subcont">
-                        <h3>From: </h3>
-                        <input id = "from-input" type="text" placeholder="Enter the starting location">
-                    </div>
-                    <div class="subcont">
-                        <h3>To: </h3>
-                        <input id = "to-input" type="text" placeholder="Enter the ending location">
-
-                    </div>
+            <div>
+                <div class="subcont">
+                    <h3>From:</h3>
+                    <input id="from-input" type="text" placeholder="Enter the starting location">
                 </div>
-            <button id="directions-btn">Directions -></button>
-
+                <div class="subcont">
+                    <h3>To:</h3>
+                    <input id="to-input" type="text" placeholder="Enter the ending location">
+                </div>
+            </div>
+            <button id="directions-btn">Directions →</button>
         </div>
+
         <div class="available-paths">
             <h3>Available Paths</h3>
             <ul>
-                <li><button id="directions-btn">
-                    <div>
-                        <h5>Throught ABC Block</h5>
-                        <div class="innerdiv">
-                            <p>Safety Rating: </p>
-                            <progress id="file" value="4" max="5"></progress>
-                        </div>
-                    </div>
-
-                </button></li>
-                <li><button id="directions-btn">
-                    <div>
-                        <h5>Throught ABC Block</h5>
-                        <div class="innerdiv">
-                            <p>Safety Rating: </p>
-                            <progress id="file" value="4" max="5"></progress>
-                        </div>
-                    </div>
-
-                </button></li>
-                <li><button id="directions-btn">
-                    <div>
-                        <h5>Throught ABC Block</h5>
-                        <div class="innerdiv">
-                            <p>Safety Rating: </p>
-                            <progress id="file" value="4" max="5"></progress>
-                        </div>
-                    </div>
-
-                </button></li>
-                <li><button id="directions-btn">
-                    <div>
-                        <h5>Throught ABC Block</h5>
-                        <div class="innerdiv">
-                            <p>Safety Rating: </p>
-                            <progress id="file" value="4" max="5"></progress>
-                        </div>
-                    </div>
-                </button></li>
-
             </ul>
         </div>
     </div>
 
-
+    <!-- RIGHT PANEL -->
     <div class="right-cont">
+        <div id="map-wrap">
+            <div id="map"></div>
 
-        <div id="map"></div>
-        <div class="info-panel" id="info">
-            <div><strong>SafePath</strong></div>
-            <div class="control-row">
-                <button id="clear" class="btn">Clear</button>
+            <div class="info-panel" id="info">
+                <div><strong>SafePath</strong></div>
+                <div class="control-row">
+                    <button id="clear" class="btn">Clear</button>
+                </div>
+                <div><small>Click the map to choose start and destination. Your location will be used as the start (or use inputs).</small></div>
+                <hr/>
+                <div id="status">Waiting for location...</div>
+                <ul id="stats" style="padding-left: 16px;"></ul>
             </div>
-            <div><small>Click the map to choose a destination. Your location will be used as the start.</small></div>
-            <hr/>
-            <div id="status">Waiting for location...</div>
-            <ul id="stats" style="padding-left: 16px;"></ul>
         </div>
 
         <div class="bottom-cont">
-            <h3>Throught Block ABC</h3>
+            <h3>Select a route</h3>
             <div class="innerbottom">
                 <div class="crime-based">
-                    <h4>Near-by reported crimes: </h4>
+                    <h4>Near-by reported crimes:</h4>
                     <h4>Safety Rating: </h4>
-                    <progress id="file" value="4" max="5"></progress>
+                    <progress id="crime-safety-progress" value="0" max="5"></progress>
                 </div>
 
                 <div class="time-based">
                     <h3>Time to commute</h3>
                     <ul>
-                        <li>Walk: 24 min </li>
-                        <li>Bike: 10 min</li>
-                        <li>Car: 5 min</li>
+                        <li>Walk: -</li>
+                        <li>Bike: -</li>
+                        <li>Car: -</li>
                     </ul>
                 </div>
-
             </div>
         </div>
-
     </div>
-
-
 </div>
-
 {% endblock %}
 
 {% block extra_js %}
-<script src="{% static 'web/js/script.js' %}">
-</script>
-
+<script src="{% static 'web/js/script.js' %}"></script>
 {% endblock %}
