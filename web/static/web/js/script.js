@@ -1,6 +1,6 @@
 // script.js
-const SAFE_ROUTE_URL = "/api/safe-route/";
-
+const API_BASE = window.location.origin;
+const SAFE_ROUTE_URL = `${API_BASE}/api/safe-route/`;
 const map = L.map("map").setView([28.6139, 77.209], 13);
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
   maxZoom: 19,
